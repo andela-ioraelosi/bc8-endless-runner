@@ -5,6 +5,7 @@ Runner.Boot = function (game) {};
 Runner.Boot.prototype = {
     preload:function(){
         // load images
+        this.load.image('background', 'assets/splash/gb_0013_Layer-0.png');
         
     },
     create: function () {
@@ -19,8 +20,11 @@ Runner.Boot.prototype = {
         this.scale.setScreenSize(true)
         
         this.input.addPointer();
-        this.stage.backgroundColer= '#68d098';
+        this.stage.backgroundColor= '#68d098';
         
+    },
+    update: function (){
         this.state.start('Preloader');
+
     }
 }
