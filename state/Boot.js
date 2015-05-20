@@ -8,17 +8,18 @@ Runner.Boot.prototype = {
         
     },
     create: function () {
-        this.input.maxPointer = 1;
+        this.input.maxPointers = 1;
         this.stage.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         this.disableVisibilityChange = false;
-        this.scale.minWidth = 480;
-        this.scale.minHeight = 270;
+        this.scale.minWidth = 736;
+        this.scale.minHeight = 414;
         this.scale.pageAlignHorizontally = true;
         this.scale.pageAlignVertically = true;
         this.stage.forceLandscape = true;
         this.scale.setScreenSize(true)
+        
         this.input.addPointer();
-        this.stage.backgroundColer= '#b2c0d3';
+        this.stage.backgroundColer= '#68d098';
         
         this.state.start('Preloader');
     }

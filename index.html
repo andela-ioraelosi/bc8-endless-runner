@@ -2,6 +2,10 @@
 <html>
 <head>
     <script src="lib/phaser.js"></script>
+    <script src="Boot.js"></script>
+    <script src="Preloader.js"></script>
+    <script src="game.js"></script>
+
     <style>
      body{
          margin:0;
@@ -14,7 +18,10 @@
         <div id="gameContainer"></div>
         <script type="text/javascript">
             window.onload = function(){
-                var game = new Phaser.Game(,,Phaser.AUTO, 'gameContainer')
+                var game = new Phaser.Game(,,Phaser.AUTO, 'gameContainer');
+                game.state.add("Boot", Runner.Boot);
+                game.state.add("Preloader", Runner.Preloader);
+                game.state.add('Game'Runner.game);
             }
         </script>
     </body>
