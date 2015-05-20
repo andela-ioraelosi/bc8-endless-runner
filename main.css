@@ -1,0 +1,20 @@
+body{
+    padding-top: 50px;
+}
+#userCred {
+    height: 40%;
+    width: 20%;
+    margin: 0 auto;
+
+}
+
+.userCredentials {
+    height: 30%;
+    width: 70%;
+    
+}
+
+.entry {
+margin-bottom: 10px;
+
+}
