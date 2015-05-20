@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Realtime Message Board</title>
+        <link  type="text/css" rel="stylesheet" href="main.css"/>
+        <link rel="stylesheet" href="bootstrap.css" />
+        <script src="jquery-2.1.4.min.js"></script>
+        <script src="firebase.js"></script>
+
+    </head>
+    <body>
+        <form id="userCred">
+            <div class="userCredentials">
+                <label>Email address</label>
+                <input type="email" id="userEmail" placeholder="email adddress" class="entry" ></input>
+            
+                <label>Password</label>
+                <input type="password" id="userPassword" placeholder="password" class="entry"></input>
+            </div>
+        <button id="signUp">Sign Up</button>
+        <button id="logIn">Log In</button>
+        </form>
+        
+    
+        <script>          
+           var rootRef = new Firebase("https://tester-app.firebaseio.com");
+            //SIGN UP SECTION
+            $('#signUp').click(function(){
+                //alert('button waas clicked');
+                var email = $('#userEmail').val();
+                //console.log(email);
+                var password = $('#userPassword').val();
+                var userObj = {email: email, password: password};
+                rootRef.createUser(userObj, function(error, userData){
+                    if(error) {
+                        console.log("Error creating user:", error);
+                    } else {
+                        console.log("Successfully created user account with uid",                                                   userData.uid);
+                        var username = email.slice(0, email.indexOf('@')); 
+                        rootRef.onAuth(function(authData) {
+  
+    
+    // saves user profile to firebase
+    rootRef.child("users").child(authData.uid).set({
+         provider: authData.provider,
+        name: username
+    });
+  
+});
+                    }
+                
+                });
+                
+              return false;  
+           });
+            
+          //LOGIN SECTION  
+            $('#logIn').click(function(){
+                //alert('button waas clicked');
+                var email = $('#userEmail').val();
+                //console.log(email);
+                var password = $('#userPassword').val();
+                var userObj = {email: email, password: password};
+                rootRef.authWithPassword(userObj, function(error, authData){
+                    if(error) {
+                        console.log("Login failed!", error);
+                    } else {
+                        console.log("Authenticated successfully with payload",                                                   authData);
+                        
+                        //if auth succesful switch to this page
+                        //window.location.href="https://google.com"
+                        
+                    }
+                
+                });
+                
+              return false;  
+           });
+            
+            
+        </script>
+    </body>
+</html>
