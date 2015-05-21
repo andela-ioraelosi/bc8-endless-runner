@@ -13,8 +13,10 @@
          background-color:whitesmoke;
          padding: 0;
      }
-    div{
+    #gameContainer{
         margin:auto;
+        position:relative;
+        top: 50px;
         padding: 0;
         
     }
@@ -30,6 +32,7 @@
                 game.state.add("StartMenu", Runner.StartMenu);
                 game.state.add("Game", Runner.Game);
                 game.state.start("Boot");
+            
             }
         </script>
     </body>
