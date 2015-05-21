@@ -24,7 +24,7 @@
                       this.window.user = username
                         rootRef.child("users").child(username).set({
                              name: username,
-                            score: [], highScore: 0});
+                            score: [0], highScore: 0});
                    // });//end of onAuth
                       
                  $('#status').text('');
