@@ -2,81 +2,81 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title> Realtime Message Board</title>
-        <link  type="text/css" rel="stylesheet" href="main.css"/>
+        <title>Gentle Bunny</title>
+        
         <link rel="stylesheet" href="bootstrap.css" />
         <script src="jquery-2.1.4.min.js"></script>
+        <link  type="text/css" rel="stylesheet" href="main.css"/>
         <script src="firebase.js"></script>
 
     </head>
     <body>
-        <form id="userCred">
-            <div class="userCredentials">
-                <label>Email address</label>
-                <input type="email" id="userEmail" placeholder="email adddress" class="entry" ></input>
-            
-                <label>Password</label>
-                <input type="password" id="userPassword" placeholder="password" class="entry"></input>
-            </div>
-        <button id="signUp">Sign Up</button>
-        <button id="logIn">Log In</button>
-        </form>
         
-    
+        <div id="overlay">
+        <div id="login_box">
+            <label>Email</label>
+            <input type="email" placeholder="Email" id="userEmail" />
+            <label>Password</label>
+            <input placeholder="Password" id="userPassword" type="password" />
+            <button id="signUp">Sign Up</button>
+            <button id="logIn">Log In</button>
+            <div id="status"></div>
+        </div>
+        
+    </div>
+        
+
         <script>          
-           var rootRef = new Firebase("https://tester-app.firebaseio.com");
+           var rootRef = new Firebase("https://quicktest-app.firebaseio.com"),
+           leaderBoardRef = rootRef.child('leaderBoard');
+
+           $(document).ready(function(){
+                $('#overlay').show();
+                $('#login_box').show();
+            });
             //SIGN UP SECTION
             $('#signUp').click(function(){
-                //alert('button waas clicked');
+                //alert('you clicked me');
                 var email = $('#userEmail').val();
-                //console.log(email);
                 var password = $('#userPassword').val();
                 var userObj = {email: email, password: password};
-                rootRef.createUser(userObj, function(error, userData){
-                    if(error) {
-                        console.log("Error creating user:", error);
-                    } else {
-                        console.log("Successfully created user account with uid",                                                   userData.uid);
-                        var username = email.slice(0, email.indexOf('@')); 
-                        rootRef.onAuth(function(authData) {
-  
-    
-    // saves user profile to firebase
-    rootRef.child("users").child(authData.uid).set({
-         provider: authData.provider,
-        name: username
-    });
-  
-});
-                    }
-                
-                });
-                
-              return false;  
-           });
+                rootRef.createUser(userObj, function(error, userData) {
+                  if (error) {
+                    console.log("Error creating user:", error);
+                    $('#status').append(error);//logs any errors for user
+                  } else {
+                    console.log("Successfully created user account with uid:", userData.uid);
+                    //create user profile following successful signup/authentication
+                    var username = email.slice(0, email.indexOf('@')); 
+                   // rootRef.onAuth(function(authData){
+                        rootRef.child("users").child(userData.uid).set({
+                             name: username,
+                            score: [], highScore: 0});
+                   // });//end of onAuth
+                $('#status').append('<h3>Youre signed Up!!! Click Login to proceed.</h3>');
+                //logs to user that sign up is successful
+                  }//end of else
+                });//end of refcreateUser
+            });//end of signup
             
           //LOGIN SECTION  
             $('#logIn').click(function(){
-                //alert('button waas clicked');
+                //alert('you clicked me');
                 var email = $('#userEmail').val();
-                //console.log(email);
                 var password = $('#userPassword').val();
                 var userObj = {email: email, password: password};
-                rootRef.authWithPassword(userObj, function(error, authData){
+                rootRef.authWithPassword(userObj, function(error, authData) {
                     if(error) {
-                        console.log("Login failed!", error);
-                    } else {
-                        console.log("Authenticated successfully with payload",                                                   authData);
-                        
-                        //if auth succesful switch to this page
-                        //window.location.href="https://google.com"
-                        
-                    }
-                
-                });
-                
-              return false;  
-           });
+                            console.log("Login failed!", error);
+                        } else {
+                            console.log("Authenticated successfully with payload",authData);
+                            //if auth succesful switch to this page
+                            //window.location.href="https://google.com"
+                            $('#overlay').hide();
+                            $('#login_box').hide();
+                        }  
+                });//end of authWithPassword
+            });//end of Login
             
             
         </script>

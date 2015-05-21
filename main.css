@@ -1,20 +1,47 @@
 body{
-    padding-top: 50px;
+    background-color: red;
+    margin: 0;
+
 }
-#userCred {
-    height: 40%;
-    width: 20%;
-    margin: 0 auto;
+#overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 5;
+	height: 100%;
+	width: 100%;
+	display: none;
 
 }
 
-.userCredentials {
-    height: 30%;
-    width: 70%;
-    
+#login_box {
+	height: 400px;
+	width: 350px;
+	margin: 10% auto;
+	position: relative;
+	z-index: 10;
+	background: #999;
+	padding: 20px;
+	border-radius: 15px;
+	text-align: center;
+	display: none;
 }
 
-.entry {
-margin-bottom: 10px;
-
+input{
+	margin: 10px auto;
+	display: block;
+	padding: 5px;
+	width: 70%;
+	height: 30px;
+	border-radius: 5px;
 }
+
+button {
+	padding: 10px;
+	margin: 10px 10px ;
+	font-size: 1.1em;
+	border-radius: 5px;
+}
+
+
