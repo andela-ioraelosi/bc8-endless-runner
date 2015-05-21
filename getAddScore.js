@@ -1,16 +1,5 @@
 var myApp = angular.module("myApp", ["firebase"]);
 
-/*if(game.end === true){
-	$scope.push();
-}
-
-var list = $firebaseArray(ref);
-list.$add({ foo: "bar" }).then(function(ref) {
-  var id = ref.key();
-  console.log("added score with id " + id);
-  list.$indexFor(id); // returns location in the array
-});*/
-
 
 // AngularJS
 $scope.authObj.$onAuth(function(authData) {
@@ -31,7 +20,7 @@ $scope.authObj.$onAuth(function(authData) {
    } else {
 
        console.log(snapshot.val())
-       window.alert(snapshot.val())
+       //window.alert(snapshot.val())
        //document.write(snapshot.val())
    }
 });
@@ -41,11 +30,11 @@ rootRef.child('users').child(authData.uid/* username */).once('value', function(
    if (snapshot.val() === null) {
        console.log("No Users")
    } else {
-
+		var snap = snapshot.val();
+        console.log(snap.name);
        console.log(snapshot.val())
        //window.alert(snapshot.val())
-       //document.write(snapshot.val())
-   }
+       //document.write(snapshot.val())   }
 });
 
 
