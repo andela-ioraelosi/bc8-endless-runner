@@ -1,38 +1,42 @@
+/*
 body{
     background-color: red;
     margin: 0;
 
 }
+*/
+/*
 #overlay {
+
 	position: fixed;
 	top: 0;
 	left: 0;
+
 	background-color: rgba(0,0,0,0.5);
-	z-index: 5;
-	height: 100%;
-	width: 100%;
-	display: none;
+/*	z-index: 5;*/
+/*	height: 100%;*/
+/*	width: 100%;*/
+/*	display: none;*/
 
 }
 
 #login_box {
-	height: 400px;
-	width: 350px;
+	height: 50px;
+    
+	width:100px;
 	margin: 10% auto;
 	position: relative;
-	z-index: 10;
-	background: #999;
 	padding: 20px;
 	border-radius: 15px;
 	text-align: center;
-	display: none;
+    right: 10px;
 }
 
 input{
-	margin: 10px auto;
-	display: block;
+	margin: 10px;
+	display: inline;
 	padding: 5px;
-	width: 70%;
+	width: 20%;
 	height: 30px;
 	border-radius: 5px;
 }

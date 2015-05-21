@@ -1,14 +1,13 @@
-<script type="application/javascript">          
+          
            var rootRef = new Firebase("https://quicktest-app.firebaseio.com"),
            leaderBoardRef = rootRef.child('leaderBoard');
            var email,password,username, userObj = {};
-
-           $(document).ready(function(){
-                $('#overlay').show();
-                $('#login_box').show();
-            });
+    console.log(rootRef)
+//           $(document).ready(function(){
+//                $('#login_box').show();
+//            });
             //SIGN UP SECTION
-            $('#signUp').click(function(){
+            $('#signUp').click( function(){
                 //alert('you clicked me');
                 email = $('#userEmail').val();
                 password = $('#userPassword').val();
@@ -22,18 +21,20 @@
                     //create user profile following successful signup/authentication
                     var username = email.slice(0, email.indexOf('@')); 
                    // rootRef.onAuth(function(authData){
+                      this.window.user = username
                         rootRef.child("users").child(username).set({
                              name: username,
                             score: [], highScore: 0});
                    // });//end of onAuth
                 $('#status').append('<h3>Youre signed Up!!! Click Login to proceed.</h3>');
+//                $('#overlay').toggleClass("turnoff")
                 //logs to user that sign up is successful
                   }//end of else
                 });//end of refcreateUser
             });//end of signup
             
           //LOGIN SECTION  
-            $('#logIn').click(function(){
+            $('#logIn').click( function(){
                 //alert('you clicked me');
                 email = $('#userEmail').val();
                 password = $('#userPassword').val();
@@ -42,12 +43,14 @@
                     if(error) {
                             console.log("Login failed!", error);
                         } else {
+                            this.window.user = userObj.email.slice(0, email.indexOf('@'));
                             console.log("Authenticated successfully with payload",authData);
                             //if auth succesful switch to this page
                             //window.location.href="https://google.com"
                             $('#overlay').hide();
                             $('#login_box').hide();
+                            $('.greetings').append("Hi! "+this.window.user);
                         }  
                 });//end of authWithPassword
             });//end of Login
-    </script>
+    
