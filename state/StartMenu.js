@@ -10,6 +10,11 @@ Runner.StartMenu =function(game) {
 }
 
 Runner.StartMenu.prototype = {
+    preload: function(){
+        this.load.image('score', 'assets/splash/gb_0005_field-2.png');
+        this.load.atlasJSONHash('character', 'assets/character/run.png', 'assets/character/run.json');   
+        this.load.spritesheet('character2','assets/character/jump.png', 'assets/character/jump.json');
+    },
     create: function(){
         this.background = this.add.image(this.world.centerX, this.world.centerY, 'background');
         this.background.anchor.setTo(0.5, 0.5)
@@ -24,8 +29,6 @@ Runner.StartMenu.prototype = {
         this.characterImage.anchor.setTo(0.5,0.5)
         this.logo = this.add.image(this.world.centerX, this.world.centerY-70, 'logo')
         this.logo.anchor.setTo(0.5, 0.5);
-//        this.tree = this.add.image(this.world.width, this.world.height, 'tree')
-//        this.map.anchor.setTo(1,1)
 
     },
     startGame: function (pointer){
