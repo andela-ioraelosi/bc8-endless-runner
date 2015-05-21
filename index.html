@@ -29,6 +29,7 @@
         <script>          
            var rootRef = new Firebase("https://quicktest-app.firebaseio.com"),
            leaderBoardRef = rootRef.child('leaderBoard');
+           var email,password,username, userObj = {};
 
            $(document).ready(function(){
                 $('#overlay').show();
@@ -37,9 +38,9 @@
             //SIGN UP SECTION
             $('#signUp').click(function(){
                 //alert('you clicked me');
-                var email = $('#userEmail').val();
-                var password = $('#userPassword').val();
-                var userObj = {email: email, password: password};
+                email = $('#userEmail').val();
+                password = $('#userPassword').val();
+                userObj = {email: email, password: password};
                 rootRef.createUser(userObj, function(error, userData) {
                   if (error) {
                     console.log("Error creating user:", error);
@@ -62,9 +63,9 @@
           //LOGIN SECTION  
             $('#logIn').click(function(){
                 //alert('you clicked me');
-                var email = $('#userEmail').val();
-                var password = $('#userPassword').val();
-                var userObj = {email: email, password: password};
+                email = $('#userEmail').val();
+                password = $('#userPassword').val();
+                userObj = {email: email, password: password};
                 rootRef.authWithPassword(userObj, function(error, authData) {
                     if(error) {
                             console.log("Login failed!", error);
