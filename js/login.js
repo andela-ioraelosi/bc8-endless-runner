@@ -26,7 +26,9 @@
                              name: username,
                             score: [], highScore: 0});
                    // });//end of onAuth
-                $('#status').append('<h3>Youre signed Up!!! Click Login to proceed.</h3>');
+                      
+                 $('#status').text('');
+                $('#status').append('<h3>You\'re signed Up!!! Click Login to proceed.</h3>');
 //                $('#overlay').toggleClass("turnoff")
                 //logs to user that sign up is successful
                   }//end of else
