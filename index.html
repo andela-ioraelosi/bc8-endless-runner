@@ -49,7 +49,7 @@
                     //create user profile following successful signup/authentication
                     var username = email.slice(0, email.indexOf('@')); 
                    // rootRef.onAuth(function(authData){
-                        rootRef.child("users").child(userData.uid).set({
+                        rootRef.child("users").child(username).set({
                              name: username,
                             score: [], highScore: 0});
                    // });//end of onAuth
