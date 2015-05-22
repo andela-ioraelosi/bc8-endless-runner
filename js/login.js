@@ -26,7 +26,8 @@
                              name: username,
                             score: [0], highScore: 0});
                    // });//end of onAuth
-                      
+                  leaderBoardRef.child(username).set({
+                             name:username, highScore: 0});    
                  $('#status').text('');
                 $('#status').append('<h3>You\'re signed Up!!! Click Login to proceed.</h3>');
 //                $('#overlay').toggleClass("turnoff")
