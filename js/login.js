@@ -53,6 +53,7 @@
                             $('#overlay').hide();
                             $('#login_box').hide();
                             $('.greetings').append("Hi! "+this.window.user);
+                
                         }  
                 });//end of authWithPassword
             });//end of Login
