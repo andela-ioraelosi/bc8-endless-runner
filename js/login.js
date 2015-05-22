@@ -27,7 +27,6 @@
                             score: [0], highScore: 0});
                    // });//end of onAuth
                       
-                 $('#status').text('');
                 $('#status').append('<h3>You\'re signed Up!!! Click Login to proceed.</h3>');
 //                $('#overlay').toggleClass("turnoff")
                 //logs to user that sign up is successful
@@ -44,6 +43,7 @@
                 rootRef.authWithPassword(userObj, function(error, authData) {
                     if(error) {
                             console.log("Login failed!", error);
+                           $('#status').append(error);//logs any errors for user
                         } else {
                             this.window.user = userObj.email.slice(0, email.indexOf('@'));
                             console.log("Authenticated successfully with payload",authData);
