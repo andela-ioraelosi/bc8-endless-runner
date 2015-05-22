@@ -1,28 +1,29 @@
-var myApp = angular.module("myApp", ["firebase"]);
-
-//Use to call back user data
- rootRef.child('users').child(authData.uid).once('value', function(snapshot) {
-   if (snapshot.val() === null) {
-       console.log("No Users")
-   } else {
-
-       var snap = snapshot.val();
-        console.log(snap.name, snap.score);
-       console.log(snapshot.val())
-       //window.alert(snapshot.val())
-       //document.write(snapshot.val())
-   }
-});
-
+var rootRef = new Firebase('https://quicktest-app.firebaseio.com/users');
+ var authData = rootRef.getAuth();
+ var scoreSnapshot;
+ if (authData){
+  rootRef.once('value', function(snapshot) {
+  // store dataSnapshot for use in below examples.
+  scoreSnapshot = snapshot.val();
+  console.log(scoreSnapshot);
+  } 
  
-/*// AngularJS
-$scope.authObj.$onAuth(function(authData) {
-	var scoreX = rootRef.child("users").child(authData.uid)
-  if (authData) {
-    console.log(authData.uid +" "+  scoreX);
-  } else {
-    console.log("Logged out");
-  }
-});*/
+
+  //var $scoreTrack = $('#userscore')
+// $scoreTrack.text(scoreSnapshot);
+//});
+
+$('#userScore').click(function(){
+ var scoreRef = rootRef.child('users').child(test).child('score');
+  scoreRef.update({
+  //name for defined variable that stores score at end of game
+    "score": 70
+      });
+  //else {
+    //window.alert("Not Updated");
+    //}
+  
+  });
+// }
 
 

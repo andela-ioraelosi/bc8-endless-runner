@@ -26,8 +26,21 @@
             position:relative;
             top: 50px;
             padding: 0;
-
         }
+        #userScore{
+            margin:auto;
+            position:relative;
+            top:10;
+            padding: 0;
+        }
+        #score{
+            margin-top: 70;
+            position: right;
+            top: 2px;
+            padding: 0;
+        }
+        }
+              }
       </style>
     </head>
     <body>
@@ -41,10 +54,14 @@
             <button id="signUp">Sign Up</button>
             <button id="logIn">Log In</button>
             <div id="status"></div>
-            <div id="score"></div>
         </div>
         <div class="greetings"></div>
-        
+        <div>
+            <table>
+                <td><tr id='userscore'><p></p></tr></td>
+            </table>
+        </div>
+
 <!--    </div>-->
         <div id="gameContainer"></div>
         <script type="text/javascript">
@@ -59,9 +76,14 @@
             }
         </script>
     <script src="js/login.js"></script>
-    <script src="js/getScore.js"></script>
-    <script src="js/saveScore.js"></script>
+    
+<<<<<<< HEAD
+    
 
-
+=======
+>>>>>>> update get and save scores
+<script src="js/getScore.js"></script>
+<button id="userScore"><label for="userScore">Save score</label></button>
+<div id="score">Your Score: </div>
     </body>
 </html>
