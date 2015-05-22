@@ -5,9 +5,9 @@
  var gameEnd = true
 	if (gameEnd === true){
 		alert("conditional");
-	scoreRef.push({
+	scoreRef.update({
  	//name for defined variable that stores score at end of game
- 		"score": gameScore
+ 		"score": 
   		});
 	} else {
 		window.alert("Not Updated");

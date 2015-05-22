@@ -1,28 +1,13 @@
-var myApp = angular.module("myApp", ["firebase"]);
+var rootRef = new Firebase('https://quicktest-app.firebaseio.com/users');
+$('#logIn').click( function(){
+  var scoreSnapshot;
+  rootRef.once('value', function(snapshot) {
+  // store dataSnapshot for use in below examples.
+  scoreSnapshot = snapshot.val();
+  console.log(scoreSnapshot);
 
-//Use to call back user data
- rootRef.child('users').child(authData.uid).once('value', function(snapshot) {
-   if (snapshot.val() === null) {
-       console.log("No Users")
-   } else {
-
-       var snap = snapshot.val();
-        console.log(snap.name, snap.score);
-       console.log(snapshot.val())
-       //window.alert(snapshot.val())
-       //document.write(snapshot.val())
-   }
-});
-
- 
-/*// AngularJS
-$scope.authObj.$onAuth(function(authData) {
-	var scoreX = rootRef.child("users").child(authData.uid)
-  if (authData) {
-    console.log(authData.uid +" "+  scoreX);
-  } else {
-    console.log("Logged out");
-  }
-});*/
-
+  var $scoreTrack = $('#userscore')
+ $scoreTrack.text(scoreSnapshot);
+  })
+};
 
