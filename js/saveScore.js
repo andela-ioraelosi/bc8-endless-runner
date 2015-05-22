@@ -10,8 +10,6 @@
   		});
 	} else {
 		window.alert("Not Updated");
-		}
-  
-	};
+    }
 
 

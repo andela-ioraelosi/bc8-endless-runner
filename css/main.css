@@ -1,40 +1,13 @@
-/*
-body{
-    background-color: red;
-    margin: 0;
-
-}
-*/
-/*
-#overlay {
-
-	position: fixed;
-	top: 0;
-	left: 0;
-
-	background-color: rgba(0,0,0,0.5);
-/*	z-index: 5;*/
-/*	height: 100%;*/
-/*	width: 100%;*/
-/*	display: none;*/
-
-}
-
 #login_box {
 	height: 50px;
-    
-	width:100px;
-	margin: 10% auto;
-	position: relative;
+    width: 60%;
+    margin: 0 auto;
 	padding: 20px;
-	border-radius: 15px;
-	text-align: center;
-    right: 10px;
+    position: relative;
 }
 
 input{
 	margin: 10px;
-	display: inline;
 	padding: 5px;
 	width: 20%;
 	height: 30px;
@@ -47,9 +20,7 @@ button {
 	font-size: 1.1em;
 	border-radius: 5px;
 }
-.turnoff {
-    display: none;
-}
+
 body{
      margin:0;
      background-color:whitesmoke;
