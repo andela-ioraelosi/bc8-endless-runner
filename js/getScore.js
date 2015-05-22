@@ -9,5 +9,19 @@ $('#logIn').click( function(){
   var $scoreTrack = $('#userscore')
  $scoreTrack.text(scoreSnapshot);
   })
-};
+});
+
+$('#userScore').click( function(){
+ var scoreRef = rootRef.child('users').child('score');
+  scoreRef.update({
+  //name for defined variable that stores score at end of game
+    "score": 
+      });
+  } else {
+    window.alert("Not Updated");
+    }
+  
+  });
+// }
+
 
