@@ -11,28 +11,9 @@
     <script src="state/Preloader.js"></script>
     <script src="state/Game.js"></script>
     <script src="state/StartMenu.js"></script>
-
-    <style>
-        .turnoff {
-            display: none;
-        }
-        body{
-             margin:0;
-             background-color:whitesmoke;
-             padding: 0;
-         }
-        #gameContainer{
-            margin:auto;
-            position:relative;
-            top: 50px;
-            padding: 0;
-
-        }
-      </style>
     </head>
     <body>
         
-<!--        <div id="overlay" class="turnoff">-->
         <div id="login_box" >
             <label for="userEmail">Email</label>
             <input type="email" placeholder="Email" id="userEmail" />
@@ -45,7 +26,17 @@
         </div>
         <div class="greetings"></div>
         
-<!--    </div>-->
+        <div class="highScores">
+            <h4>---HighScores---</h4>
+            <ul id="list">
+            </ul>
+        </div>
+        <div class="leaderboard">
+            <h4>Leader Board</h4>
+            <ul id="lblist">
+            </ul>
+        </div>
+        
         <div id="gameContainer"></div>
         <script type="text/javascript">
            window.onload = function(){
@@ -55,7 +46,6 @@
                 game.state.add("StartMenu", Runner.StartMenu);
                 game.state.add("Game", Runner.Game);
                 game.state.start("Boot");
-            
             }
         </script>
     <script src="js/login.js"></script>
