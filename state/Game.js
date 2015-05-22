@@ -1,7 +1,6 @@
 Runner.Game = function (game){
     this.mapGroup = null;
     this.map = null;
-    Runner.distance = 0;
     this.character = null;
     this.obstacle = null;
     this.scoreboard = null
@@ -50,8 +49,8 @@ Runner.Game.prototype = {
 
     },
     update: function () {
-        Runner.score += 0.5
-        this.scoreboard.text.text = 'score: '+ Runner.score
+        Runner.score += 1;
+        this.scoreboard.text.text = 'score: '+ Runner.score;
         this.obstacle.body.velocity.x = -100;
         this.physics.arcade.collide(this.character, this.obstacle, this.handleCollison, null, this);
         this.map.body.checkCollision.up = true;
@@ -66,8 +65,6 @@ Runner.Game.prototype = {
             this.obstacle.body.x -=1;
             if(this.obstacle.body.x < this.world.x){
                 this.obstacle.body.x = this.world.width;
-//                console.log(this.obstacle.body.velocity.x)
-//                this.obstacle.body.velocity.x = -200: 
             }
         }
     },

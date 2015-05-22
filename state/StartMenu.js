@@ -16,6 +16,7 @@ Runner.StartMenu.prototype = {
         this.load.image('score', 'assets/splash/gb_0005_field-2.png');
         this.load.spritesheet('character2','assets/character/jump.png', 53, 81, 1);
     },
+    
     create: function(){
         this.background = this.add.image(this.world.centerX, this.world.centerY, 'background');
         this.background.anchor.setTo(0.5, 0.5)
@@ -28,7 +29,7 @@ Runner.StartMenu.prototype = {
         // startbutton
         this.startBtn = this.add.button(this.world.width-50, this.world.height-50, 'startbtn', this.startGame, this, 1, 0, 2);
         this.startBtn.anchor.setTo(1,1);
-        this.startBtn.scale.setTo(0.5, 0.5)
+        this.startBtn.scale.setTo(0.4, 0.4)
         this.characterImage = this.add.image(90, this.world.height-110, 'characterimg');
         this.characterImage.anchor.setTo(0.5,0.5)
         this.logo = this.add.image(this.world.centerX, this.world.centerY-70, 'logo')

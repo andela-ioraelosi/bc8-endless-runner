@@ -52,7 +52,7 @@
                             //window.location.href="https://google.com"
                             $('#overlay').hide();
                             $('#login_box').hide();
-                            $('.greetings').append("Hi! "+this.window.user);
+                            $('.greetings').append("<h3>Hi! "+this.window.user+"</h3>");
                         }  
                 });//end of authWithPassword
             });//end of Login
