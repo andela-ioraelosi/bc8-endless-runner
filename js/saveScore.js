@@ -1,6 +1,5 @@
 // Use to store player score on firebase
 
- //var saveScore = function() {
  var scoreRef = rootRef.child('users').child(username);
  var gameEnd = true
 	if (gameEnd === true){
@@ -14,6 +13,5 @@
 		}
   
 	};
-// }
 
 
