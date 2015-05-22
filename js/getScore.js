@@ -1,6 +1,6 @@
 
 //Use to call back user data
- rootRef.child('users').child(authData. ).once('value', function(snapshot) {
+ rootRef.child('users').child(authData. ).once('value', function(snapshot){
    if (snapshot.val() === null) {
        console.log("No Users")
    } else {
