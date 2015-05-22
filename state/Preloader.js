@@ -13,7 +13,8 @@ Runner.Preloader.prototype = {
         this.load.image('obstacle', 'assets/splash/gb_0010_spikes.png');
         this.load.image('tree', 'assets/splash/gb_0011_trees-copy.png')
         // load add sprites 
-        this.load.spritesheet('startbtn', 'assets/splash/gb_0003_button-start.png',138,38);
+//        this.load.spritesheet('startbtn', 'assets/splash/gb_0003_button-start.png',138,38);
+        this.load.spritesheet('startbtn', 'assets/splash/button-start.png',398,144);
 
     },
     

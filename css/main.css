@@ -1,38 +1,42 @@
+/*
 body{
     background-color: red;
     margin: 0;
 
 }
+*/
+/*
 #overlay {
+
 	position: fixed;
 	top: 0;
 	left: 0;
+
 	background-color: rgba(0,0,0,0.5);
-	z-index: 5;
-	height: 100%;
-	width: 100%;
-	display: none;
+/*	z-index: 5;*/
+/*	height: 100%;*/
+/*	width: 100%;*/
+/*	display: none;*/
 
 }
 
 #login_box {
-	height: 400px;
-	width: 350px;
+	height: 50px;
+    
+	width:100px;
 	margin: 10% auto;
 	position: relative;
-	z-index: 10;
-	background: #999;
 	padding: 20px;
 	border-radius: 15px;
 	text-align: center;
-	display: none;
+    right: 10px;
 }
 
 input{
-	margin: 10px auto;
-	display: block;
+	margin: 10px;
+	display: inline;
 	padding: 5px;
-	width: 70%;
+	width: 20%;
 	height: 30px;
 	border-radius: 5px;
 }
@@ -43,5 +47,33 @@ button {
 	font-size: 1.1em;
 	border-radius: 5px;
 }
+.turnoff {
+    display: none;
+}
+body{
+     margin:0;
+     background-color:whitesmoke;
+     padding: 0;
+ }
+#gameContainer{
+    margin:auto;
+    position:relative;
+    top: 50px;
+    padding: 0;
 
+}
+.highScores{
+    float: right;
+    margin: 20px;
+    width: 20%;
+    height: 40%;
+/*            border: 2px solid black;*/
+}
+.leaderboard{
+    float: left;
+    margin: 20px;
+    height: 40%;
+    width: 20%;
+
+}
 

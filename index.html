@@ -1,142 +1,57 @@
-<<<<<<< HEAD
-"Hello World"
-<html ng-app="myApp">
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
-    <link rel="stylesheet" href="/resources/tutorial/css/example.css"/>
-  </head>
-  <body>
-    <script>
-      var myApp = angular.module("myApp", ["firebase"]);
-    </script>
-  </body>
-=======
-<!DOCTYPE html>
 <html>
-<<<<<<< HEAD
-    <head>
-        <meta charset="utf-8">
-        <title>Gentle Bunny</title>
-        
-        <link rel="stylesheet" href="css/bootstrap.css" />
-        <script src="js/jquery-2.1.4.min.js"></script>
-        <link  type="text/css" rel="stylesheet" href="css/main.css"/>
-        <script src="js/firebase.js"></script>
-
+  <head>
+     <meta charset="utf-8">
+     <title>Gentle Bunny</title>        
+<!--        <link rel="stylesheet" href="css/bootstrap.css" />-->
+    <script src="lib/jquery-2.1.4.min.js"></script>
+    <link  type="text/css" rel="stylesheet" href="css/main.css"/>
+    <script src="lib/firebase.js"></script>
+    <script src="lib/phaser.js"></script>
+    <script src="state/Boot.js"></script>
+    <script src="state/Preloader.js"></script>
+    <script src="state/Game.js"></script>
+    <script src="state/StartMenu.js"></script>
     </head>
     <body>
         
-        <div id="overlay">
-        <div id="login_box">
-            <label>Email</label>
+        <div id="login_box" >
+            <label for="userEmail">Email</label>
             <input type="email" placeholder="Email" id="userEmail" />
-            <label>Password</label>
+            <label for="userPassword">Password</label>
             <input placeholder="Password" id="userPassword" type="password" />
             <button id="signUp">Sign Up</button>
             <button id="logIn">Log In</button>
             <div id="status"></div>
             <div id="score"></div>
         </div>
+        <div class="greetings"></div>
         
-    </div>
+        <div class="highScores">
+            <h4>---HighScores---</h4>
+            <ul id="list">
+            </ul>
+        </div>
+        <div class="leaderboard">
+            <h4>Leader Board</h4>
+            <ul id="lblist">
+            </ul>
+        </div>
         
-
-        <script>          
-           var rootRef = new Firebase("https://quicktest-app.firebaseio.com"),
-           leaderBoardRef = rootRef.child('leaderBoard');
-           var email,password,username, userObj = {};
-
-           $(document).ready(function(){
-                $('#overlay').show();
-                $('#login_box').show();
-            });
-            //SIGN UP SECTION
-            $('#signUp').click(function(){
-                //alert('you clicked me');
-                email = $('#userEmail').val();
-                password = $('#userPassword').val();
-                userObj = {email: email, password: password};
-                rootRef.createUser(userObj, function(error, userData) {
-                  if (error) {
-                    console.log("Error creating user:", error);
-                    $('#status').append(error);//logs any errors for user
-                  } else {
-                    console.log("Successfully created user account with uid:", userData.uid);
-                    //create user profile following successful signup/authentication
-                    var username = email.slice(0, email.indexOf('@')); 
-                   // rootRef.onAuth(function(authData){
-                        rootRef.child("users").child(username).set({
-                             name: username,
-                            score: [], highScore: 0});
-                   // });//end of onAuth
-                $('#status').append('<h3>Youre signed Up!!! Click Login to proceed.</h3>');
-                //logs to user that sign up is successful
-                  }//end of else
-                });//end of refcreateUser
-            });//end of signup
-            
-          //LOGIN SECTION  
-            $('#logIn').click(function(){
-                //alert('you clicked me');
-                email = $('#userEmail').val();
-                password = $('#userPassword').val();
-                userObj = {email: email, password: password};
-                rootRef.authWithPassword(userObj, function(error, authData) {
-                    if(error) {
-                            console.log("Login failed!", error);
-                        } else {
-                            console.log("Authenticated successfully with payload",authData);
-                            //if auth succesful switch to this page
-                            //window.location.href="https://google.com"
-                            $('#overlay').hide();
-                            $('#login_box').hide();
-                            <script src="src/JS/getScore.js"></script>
-                          
-
-                        }  
-                });//end of authWithPassword
-            });//end of Login
-            
-            
-=======
-<head>
-    <script src="lib/phaser.js"></script>
-    <script src="state/Boot.js"></script>
-    <script src="state/Preloader.js"></script>
-    <script src="state/Game.js"></script>
-    <script src="state/StartMenu.js"></script>
-
-    <style>
-     body{
-         margin:0;
-         background-color:whitesmoke;
-         padding: 0;
-     }
-    #gameContainer{
-        margin:auto;
-        position:relative;
-        top: 50px;
-        padding: 0;
-        
-    }
-    </style>
-</head>   
-    <body>
         <div id="gameContainer"></div>
         <script type="text/javascript">
-            window.onload = function(){
+           window.onload = function(){
                 var game = new Phaser.Game(736,414,Phaser.AUTO, 'gameContainer');
                 game.state.add("Boot", Runner.Boot);
                 game.state.add("Preloader", Runner.Preloader);
                 game.state.add("StartMenu", Runner.StartMenu);
                 game.state.add("Game", Runner.Game);
                 game.state.start("Boot");
-            
             }
->>>>>>> 8a12ce230a58acb1bba40671c69cc12e655aaed9
         </script>
+    <script src="js/login.js"></script>
+    <script src="js/getScore.js"></script>
+    <script src="js/saveScore.js"></script>
+
+
     </body>
->>>>>>> 8a12ce230a58acb1bba40671c69cc12e655aaed9
 </html>
