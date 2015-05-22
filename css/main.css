@@ -47,5 +47,33 @@ button {
 	font-size: 1.1em;
 	border-radius: 5px;
 }
+.turnoff {
+    display: none;
+}
+body{
+     margin:0;
+     background-color:whitesmoke;
+     padding: 0;
+ }
+#gameContainer{
+    margin:auto;
+    position:relative;
+    top: 50px;
+    padding: 0;
 
+}
+.highScores{
+    float: right;
+    margin: 20px;
+    width: 20%;
+    height: 40%;
+/*            border: 2px solid black;*/
+}
+.leaderboard{
+    float: left;
+    margin: 20px;
+    height: 40%;
+    width: 20%;
+
+}
 
