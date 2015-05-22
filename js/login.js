@@ -46,13 +46,18 @@
                             console.log("Login failed!", error);
                            $('#status').append(error);//logs any errors for user
                         } else {
-                            this.window.user = userObj.email.slice(0, email.indexOf('@'));
+                            window.user = userObj.email.slice(0, email.indexOf('@'));
                             console.log("Authenticated successfully with payload",authData);
                             //if auth succesful switch to this page
                             //window.location.href="https://google.com"
                             $('#overlay').hide();
                             $('#login_box').hide();
-                            $('.greetings').append("<h3>Hi! "+this.window.user+"</h3>");
+                            $('.greetings').append("<h3>Hi! "+window.user+"</h3>");
+                            for (var user in window.scores){
+                                if(window.scores[user].name === window.user){
+                                    $('#list').append("<li>"+window.scores[user].highScore +"</li>")
+                                }
+                            }
                         }  
                 });//end of authWithPassword
             });//end of Login
